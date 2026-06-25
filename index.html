@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Steve Liew — Technical Project & Program Manager</title>
+<meta name="description" content="Liew Hann Yuan (Steve) — Technical Project & Program Manager. I run program delivery across many teams and build the tools that make it faster.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16191d;
+    --ink-soft: #4a4f57;
+    --line: #e2e0da;
+    --paper: #faf9f6;
+    --paper-2: #ffffff;
+    --accent: #1f5c4f;
+    --accent-soft: #e8efe9;
+    --serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
+    --mono: var(--sans);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* Top bar */
+  header.bar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(250,249,246,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .bar-inner {
+    max-width: 860px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .mark {
+    font-family: var(--serif); font-size: 19px; letter-spacing: -0.01em;
+    font-weight: 600; white-space: nowrap;
+  }
+  .mark span { color: var(--accent); }
+
+  /* Tabs */
+  nav.tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tab {
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.03em;
+    text-decoration: none; color: var(--ink-soft);
+    padding: 6px 11px; border-radius: 6px; cursor: pointer;
+    border: 1px solid transparent; background: none;
+    transition: background .15s, color .15s;
+  }
+  .tab:hover { color: var(--ink); background: var(--paper-2); }
+  .tab.active { color: var(--accent); background: var(--accent-soft); }
+
+  /* Persistent resume action in the bar */
+  .bar-resume {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.03em;
+    text-decoration: none; color: #fff; background: var(--accent);
+    padding: 7px 13px; border-radius: 6px; white-space: nowrap;
+    transition: background .15s;
+  }
+  .bar-resume:hover { background: #17463c; }
+
+  /* Panels */
+  .panel { display: none; padding: 56px 0 72px; }
+  .panel.active { display: block; animation: fade .25s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  .eyebrow {
+    font-family: var(--serif); font-style: italic; font-size: 16px; letter-spacing: 0;
+    color: var(--accent); margin-bottom: 14px;
+  }
+
+  /* Hero */
+  h1.hero {
+    font-family: var(--serif);
+    font-size: clamp(36px, 6.2vw, 58px); line-height: 1.04; letter-spacing: -0.015em;
+    font-weight: 600; margin-bottom: 14px;
+  }
+  h1.hero em { font-style: normal; color: var(--accent); }
+  .hero-concrete {
+    font-size: clamp(16px, 2.2vw, 18px); color: var(--ink-soft); margin-bottom: 20px;
+    max-width: 62ch; line-height: 1.5;
+  }
+  .hero-concrete strong { color: var(--ink); font-weight: 600; }
+  .lede { font-size: clamp(15px, 2vw, 17px); color: var(--ink-soft); max-width: 64ch; line-height: 1.65; }
+
+  /* Hand-drawn underline accent under the hero */
+  .underline-doodle { display: block; width: min(340px, 72%); height: 14px; margin: -2px 0 20px; overflow: visible; }
+  .underline-doodle path { fill: none; stroke: var(--accent); stroke-width: 3.2; stroke-linecap: round; }
+
+  .meta-row {
+    margin-top: 30px; display: flex; gap: 28px; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 12.5px; color: var(--ink-soft);
+  }
+  .meta-row b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 2px; font-size: 12px; }
+
+  .cta-row { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn {
+    font-family: var(--mono); font-size: 13px; text-decoration: none;
+    padding: 10px 18px; border-radius: 7px; border: 1px solid var(--ink);
+    transition: background .15s, color .15s; cursor: pointer;
+  }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.solid { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn.solid:hover { background: #17463c; }
+
+  /* Section headings */
+  h2.sec { font-family: var(--serif); font-weight: 600; font-size: clamp(25px, 4vw, 34px); letter-spacing: -0.01em; margin-bottom: 10px; }
+  .sec-sub { color: var(--ink-soft); margin-bottom: 36px; max-width: 62ch; }
+
+  /* Experience timeline */
+  .role { padding: 24px 0; border-top: 1px solid var(--line); }
+  .role:first-of-type { border-top: none; }
+  .role-head { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline; }
+  .role-title { font-size: 18px; font-weight: 650; }
+  .role-org { color: var(--accent); font-weight: 600; }
+  .role-date { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+  .role ul { margin: 14px 0 0 0; padding-left: 0; list-style: none; }
+  .role li { position: relative; padding-left: 20px; margin-bottom: 9px; color: var(--ink-soft); }
+  .role li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .role li b { color: var(--ink); font-weight: 600; }
+
+  /* Project cards */
+  .proj { padding: 26px 0; border-top: 1px solid var(--line); }
+  .proj:first-of-type { border-top: none; }
+  .proj-num { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--accent); }
+  .proj h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; margin: 6px 0 8px; letter-spacing: -0.01em; }
+  .proj p { color: var(--ink-soft); max-width: 66ch; line-height: 1.6; }
+  .proj p + p { margin-top: 8px; }
+  .proj .hook { color: var(--ink); font-weight: 600; }
+  .proj-note {
+    margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
+    border-left: 2px solid var(--accent-soft); padding-left: 10px; line-height: 1.45;
+  }
+  .tags { margin-top: 12px; display: flex; gap: 7px; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--mono); font-size: 11px; color: var(--ink-soft);
+    border: 1px solid var(--line); border-radius: 5px; padding: 3px 8px; background: var(--paper-2);
+  }
+
+  /* Skills */
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 26px; }
+  .skill-block h4 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 17px; color: var(--accent); margin-bottom: 12px; }
+  .skill-block ul { list-style: none; }
+  .skill-block li { color: var(--ink-soft); margin-bottom: 7px; padding-left: 16px; position: relative; }
+  .skill-block li::before { content: "·"; position: absolute; left: 4px; color: var(--accent); font-weight: 700; }
+
+  /* Contact */
+  .contact-links { display: flex; flex-direction: column; gap: 4px; margin-top: 20px; }
+  .contact-links a { font-family: var(--mono); font-size: 15px; text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; transition: color .15s; }
+  .contact-links a:hover { color: var(--accent); }
+  .contact-links a span:last-child { color: var(--ink-soft); }
+
+  /* Off the Clock — warmer, more personal than the work tabs */
+  .otc-lede { font-size: clamp(16px, 2.2vw, 19px); color: var(--ink); max-width: 60ch; line-height: 1.6; margin-bottom: 8px; }
+  .otc-lede + .otc-lede { color: var(--ink-soft); font-size: clamp(15px, 2vw, 17px); margin-bottom: 40px; }
+  .otc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+  .otc-card {
+    border: 1px solid var(--line); border-radius: 12px; background: var(--paper-2);
+    padding: 24px 24px 26px;
+  }
+  .otc-card h3 {
+    font-family: var(--serif); font-weight: 600; font-size: 19px; letter-spacing: -0.01em;
+    color: var(--accent); margin-bottom: 4px;
+  }
+  .otc-card .otc-kicker { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 18px; line-height: 1.5; }
+
+  /* Milestones */
+  .otc-mile { list-style: none; }
+  .otc-mile li { position: relative; padding-left: 26px; margin-bottom: 14px; line-height: 1.5; }
+  .otc-mile li:last-child { margin-bottom: 0; }
+  .otc-mile li::before {
+    position: absolute; left: 0; top: 1px; font-family: var(--mono); font-size: 12px; font-weight: 600;
+  }
+  .otc-mile li.done::before { content: "✓"; color: var(--accent); }
+  .otc-mile li.wip::before { content: "→"; color: var(--ink-soft); }
+  .otc-mile .otc-note { display: block; color: var(--ink-soft); font-size: 13.5px; margin-top: 1px; }
+
+  /* Partner events — calendar-style rows */
+  .otc-event { display: flex; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--line); }
+  .otc-event:first-of-type { border-top: none; padding-top: 0; }
+  .otc-event .otc-when {
+    font-family: var(--mono); font-size: 12px; color: var(--accent); white-space: nowrap;
+    min-width: 74px; font-weight: 600;
+  }
+  .otc-event .otc-what { line-height: 1.45; }
+  .otc-event .otc-what span { display: block; color: var(--ink-soft); font-size: 13.5px; }
+
+  footer { border-top: 1px solid var(--line); padding: 26px 0; font-family: var(--mono); font-size: 11.5px; color: var(--ink-soft); }
+
+  @media (prefers-reduced-motion: reduce) { *, html { scroll-behavior: auto; } .panel.active { animation: none; } }
+  .tab:focus-visible, .btn:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-inner">
+    <div class="mark">Steve <span>Liew</span></div>
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-panel="home" role="tab">home</button>
+      <button class="tab" data-panel="experience" role="tab">experience</button>
+      <button class="tab" data-panel="projects" role="tab">projects</button>
+      <button class="tab" data-panel="skills" role="tab">skills</button>
+      <button class="tab" data-panel="offclock" role="tab">off the clock</button>
+      <button class="tab" data-panel="contact" role="tab">contact</button>
+    </nav>
+    <a class="bar-resume" href="resume-steve-liew.pdf" download>resume ↓</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HOME -->
+  <section class="panel active" id="home" role="tabpanel">
+    <div class="eyebrow">Technical Project & Program Manager · AI Delivery · Singapore</div>
+    <h1 class="hero">I build the <em>tools</em>,<br>not just coordinate them.</h1>
+    <svg class="underline-doodle" viewBox="0 0 340 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M3 9 C 55 3, 105 12, 158 6 S 250 2, 300 9 C 315 11, 325 8, 337 5" />
+    </svg>
+    <p class="hero-concrete">
+      In the past year at <strong>Shopee</strong> I shipped a <strong>production multi-agent risk assessment system</strong>, a cross-team reporting pipeline spanning five product lines, custom AI agent skills, and live frontend fixes. Real tools, in production, used by real teams.
+    </p>
+    <p class="lede">
+      Computer Science background, now a Senior Associate TPM. I run program delivery across APAC and LATAM, coordinating dozens of teams and senior Product, Engineering, and Business stakeholders, and I build the tooling that makes that delivery faster. I'm at my best where the problem is messy and the tools don't exist yet.
+    </p>
+    <div class="meta-row">
+      <div><b>Now</b>Sr. Associate TPM, Shopee</div>
+      <div><b>Scale</b>5 product lines · 25+ teams · APAC/LATAM</div>
+      <div><b>Impact</b>GMV +10% · Ads +8%</div>
+      <div><b>Education</b>B. Comp Sci (Hons), USM</div>
+    </div>
+    <div class="cta-row">
+      <a class="btn solid" data-jump="projects" href="#projects">See what I've built</a>
+      <a class="btn" href="resume-steve-liew.pdf" download>Download resume (PDF)</a>
+      <a class="btn" href="mailto:steveliew9@gmail.com">Get in touch</a>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="panel" id="experience" role="tabpanel">
+    <div class="eyebrow">Experience</div>
+    <h2 class="sec">Where I've spent my time</h2>
+    <p class="sec-sub">Program execution across APAC and LATAM, plus the tools that make the work faster.</p>
+
+    <div class="role">
+      <div class="role-head">
+        <div><span class="role-title">Senior Associate, Technical Project Manager</span> · <span class="role-org">Shopee Singapore</span></div>
+        <div class="role-date">Jan 2026 – Present</div>
+      </div>
+      <ul>
+        <li>Built and deployed a <b>production multi-agent system</b> that assesses project complexity across six risk dimensions, cutting manual planning overhead and improving consistency.</li>
+        <li>Architected inter-agent orchestration ("Enrich Loop") with real-time knowledge retrieval, guardrails, and adaptive mode-switching; validated through phased QA.</li>
+        <li>Eliminated fragmented reporting across <b>5 major product lines (25+ delivery teams)</b> with scalable Python pipelines integrating internal APIs into a unified reporting architecture.</li>
+        <li>Shipped frontend and backend features into a production React/TypeScript monorepo through an <b>AI Workflow pipeline (Claude Code and Codex)</b>, authoring feature briefs and specs, then reviewing AI-generated code as human-in-the-loop across deploy and QA; mentor junior PMs and engineers.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div><span class="role-title">Associate, Technical Project Manager</span> · <span class="role-org">Shopee Singapore</span></div>
+        <div class="role-date">Apr 2022 – Dec 2025</div>
+      </div>
+      <ul>
+        <li>Drove <b>GMV +10%</b> with the Expat initiative, a translation feature, through model training, production deployment, UAT, and A/B experiments.</li>
+        <li>Grew <b>Ads Revenue +8%</b> across APAC/LATAM via multi-iteration A/B testing and a phased Homepage rollout under aggressive timelines.</li>
+        <li>Directed end-to-end expansion into <b>2 new adjacent countries</b>, coordinating <b>15+ cross-functional teams</b> to provision containerized infrastructure, databases, middleware, monitoring, and budget guardrails, then launching a localized app across regional stores with sustained traffic uplift.</li>
+        <li>Owned full SDLC: PRD design, test strategy, release planning, milestones, rollback criteria, and defect taxonomy aligned across Product, Engineering, QA, and DevOps.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div><span class="role-title">Application Consultant</span> · <span class="role-org">Xtremax Singapore</span></div>
+        <div class="role-date">Mar 2021 – Mar 2022</div>
+      </div>
+      <ul>
+        <li>Led end-to-end development of responsive web apps (HTML5, CSS3, Vue.js, Laravel), gathering client requirements, managing Agile SDLC, and presenting solutions to stakeholders.</li>
+      </ul>
+    </div>
+
+    <div class="role">
+      <div class="role-head">
+        <div><span class="role-title">Mobile & Web Development Internships</span> · <span class="role-org">Hispeedcity · IT Wonders (Malaysia)</span></div>
+        <div class="role-date">2019 – 2021</div>
+      </div>
+      <ul>
+        <li>Scrum-based mobile development and production Vue.js / Laravel web delivery — the engineering foundation underneath the PM work.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="panel" id="projects" role="tabpanel">
+    <div class="eyebrow">Selected Builds</div>
+    <h2 class="sec">A few things I've built</h2>
+    <p class="sec-sub">Real tools solving real problems — from idea to production, edge cases included.</p>
+
+    <div class="proj">
+      <div class="proj-num">01 · Flagship</div>
+      <h3>Multi-Agent Complexity Assessment System</h3>
+      <p><span class="hook">The problem:</span> PMs assessed project complexity by gut feel, with no shared framework. Risk was handled inconsistently from one project to the next, and every plan carried hidden manual overhead.</p>
+      <p><span class="hook">My approach:</span> I designed a multi-agent system that reads the internal Knowledge Base in real time and scores a project across six risk dimensions. An orchestration layer (the "Enrich Loop") coordinates the agents, retrieves supporting context, and switches modes based on what the project needs. Guardrails constrain the agents to grounded answers to prevent hallucination, and the whole thing was validated through phased QA before rollout.</p>
+      <p><span class="hook">The result:</span> A consistent, repeatable complexity read that now feeds planning workflows across product lines, replacing ad-hoc judgement with a framework the team trusts.</p>
+      <p class="proj-note">Internal Shopee system. Architecture, agent design, and QA approach are mine and I'm glad to whiteboard the full design in an interview.</p>
+      <div class="tags"><span class="tag">Multi-Agent</span><span class="tag">RAG / KB</span><span class="tag">Guardrails</span><span class="tag">Production</span></div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-num">02</div>
+      <h3>POP Business Review Tracker</h3>
+      <p><span class="hook">The problem:</span> Five Marketplace product lines, 25+ teams in total, had zero cross-team visibility into how long business reviews were taking at each approval gate.</p>
+      <p><span class="hook">What I built:</span> A Python pipeline + Flask dashboard that pulls P0/P1 request data from the internal POP API, tracks every request from submit to live, and writes it all into a shared Google Sheet with aging alerts. Five PM teams now use it weekly. This was the first Python I ever wrote.</p>
+      <p class="proj-note">Internal tool on Shopee data, so no public link. Happy to walk through the pipeline design and the Sheets integration in an interview.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Google Sheets API</span><span class="tag">Data Pipeline</span></div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-num">03</div>
+      <h3>Meeting Attendee Resolver</h3>
+      <p><span class="hook">The problem:</span> Scheduling cross-team meetings meant manually cross-referencing org charts, tech stacks, and availability — slow and error-prone.</p>
+      <p><span class="hook">What I built:</span> A web portal + Python server + SeaTalk bot that resolves the right attendees by meeting purpose and team, ranks time slots by preference, and sends a draft invite via bot DM with a pre-filled Google Calendar link.</p>
+      <p class="proj-note">Built on internal org and tooling data, so it stays private. The resolver logic and bot flow are mine to walk through.</p>
+      <div class="tags"><span class="tag">Web Portal</span><span class="tag">SeaTalk Bot</span><span class="tag">Google Calendar</span><span class="tag">~2,400 lines</span></div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-num">04</div>
+      <h3>Custom Agent Skills</h3>
+      <p><span class="hook">The problem:</span> PMs at Shopee had no quick way to check release calendars or assess project complexity without digging through multiple systems.</p>
+      <p><span class="hook">What I built:</span> Two reusable agent skills: a Release Calendar Agent that answers natural-language scheduling questions from a live API, and a PM Complexity Bot that grounds risk assessment against the internal Knowledge Base with strict formatting discipline. Both now part of daily PM workflows.</p>
+      <p class="proj-note">Internal agent skills, not publicly shippable. I can demo the prompt design and grounding approach live.</p>
+      <div class="tags"><span class="tag">Agent Skills</span><span class="tag">Claude Code</span><span class="tag">Natural Language</span><span class="tag">Confluence API</span></div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-num">05</div>
+      <h3>PMP Platform Contributions</h3>
+      <p><span class="hook">The problem:</span> The internal Project Management Portal needed navigation fixes, chart tooltip bugs, and branded UI updates that were slowing down report users.</p>
+      <p><span class="hook">What I fixed:</span> Root-cause fix for stacked-chart tooltips showing cumulative values instead of per-segment values. Built an inline SVG sidebar logo with collapsed/expanded states. Converted the Reports nav item into a dropdown with module sub-items. 20+ commits to a production React / TypeScript monorepo.</p>
+      <p class="proj-note">Commits live in an internal monorepo. I can talk through the diffs and the root-cause debugging in detail.</p>
+      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Ant Design</span><span class="tag">G2 Charts</span></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="panel" id="skills" role="tabpanel">
+    <div class="eyebrow">Toolkit</div>
+    <h2 class="sec">The toolkit</h2>
+    <p class="sec-sub">Built on a Computer Science (Software Engineering, Honours) foundation.</p>
+    <div class="skill-grid">
+      <div class="skill-block">
+        <h4>Systems & AI</h4>
+        <ul>
+          <li>Multi-Agent Orchestration</li>
+          <li>RAG / Knowledge Base Integration</li>
+          <li>LLM Prompt Engineering</li>
+          <li>Agentic Workflows</li>
+          <li>Evaluation & QA</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h4>Build</h4>
+        <ul>
+          <li>Python</li>
+          <li>React · TypeScript</li>
+          <li>Vue.js · Laravel</li>
+          <li>SQL</li>
+          <li>Internal API Integration</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h4>Program Management</h4>
+        <ul>
+          <li>Full SDLC Ownership</li>
+          <li>Release Planning & Quality Gates</li>
+          <li>A/B Testing & Phased Rollout</li>
+          <li>Cross-functional Coordination</li>
+          <li>Risk & Rollback Planning</li>
+        </ul>
+      </div>
+      <div class="skill-block">
+        <h4>Ways of Working</h4>
+        <ul>
+          <li>Jira · Confluence</li>
+          <li>Google Workspace</li>
+          <li>Multi-market (APAC / LATAM)</li>
+          <li>Mandarin (Native) · English (Pro)</li>
+          <li>Mentoring junior PMs & engineers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFF THE CLOCK -->
+  <section class="panel" id="offclock" role="tabpanel">
+    <div class="eyebrow">Off the Clock</div>
+    <h2 class="sec">I stay hands-on after hours</h2>
+    <p class="otc-lede">The building habit doesn't switch off when work does. In my own time I pick up new tech, take things apart to see how they work, and build small projects just because I want them to exist.</p>
+    <p class="otc-lede">It's how I stay current and keep my hands in the actual craft, not just the roadmap.</p>
+
+    <div class="otc-grid">
+
+      <!-- Exploration -->
+      <div class="otc-card">
+        <h3>What I'm exploring</h3>
+        <p class="otc-kicker">Curiosity-driven, no deadline. Whatever's new and worth understanding properly.</p>
+        <ul class="otc-mile">
+          <li class="done">New AI tooling and agent frameworks<span class="otc-note">Tried on real problems, not just demos.</span></li>
+          <li class="done">Full-stack side builds<span class="otc-note">Front to back, so I understand the whole system.</span></li>
+          <li class="done">Reading and reverse-engineering how good products work<span class="otc-note">The fastest way to learn is to take something apart.</span></li>
+          <li class="wip">Always one experiment in progress<span class="otc-note">The fun part is that it's never finished.</span></li>
+        </ul>
+      </div>
+
+      <!-- Personal app example -->
+      <div class="otc-card">
+        <h3>A build that's just ours</h3>
+        <p class="otc-kicker">One example: a small private web app I designed and built for me and my partner. Described at the feature level, the contents stay private.</p>
+        <div class="otc-event">
+          <div class="otc-when">Plan</div>
+          <div class="otc-what">A planner module<span>Options, budgeting, and decisions in one place.</span></div>
+        </div>
+        <div class="otc-event">
+          <div class="otc-when">Track</div>
+          <div class="otc-what">Important dates and reminders<span>Milestones, recurring events, and goals.</span></div>
+        </div>
+        <div class="otc-event">
+          <div class="otc-when">Collect</div>
+          <div class="otc-what">An idea dock and a timeline<span>Things to try, and moments worth keeping.</span></div>
+        </div>
+        <div class="otc-event">
+          <div class="otc-when">Profile</div>
+          <div class="otc-what">A page for each of us<span>The personal layer that makes it ours.</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="panel" id="contact" role="tabpanel">
+    <div class="eyebrow">Contact</div>
+    <h2 class="sec">Let's talk</h2>
+    <p class="sec-sub">Open to technical project &amp; program management roles, including AI delivery, in Singapore. I'm at my best when the problem is messy and the tools don't exist yet.</p>
+    <div class="contact-links">
+      <a href="mailto:steveliew9@gmail.com"><span>Email</span><span>steveliew9@gmail.com</span></a>
+      <a href="https://linkedin.com/in/steve-liew8" target="_blank" rel="noopener"><span>LinkedIn</span><span>/in/steve-liew8</span></a>
+      <a href="tel:+6585858458"><span>Phone</span><span>+65 8585 8458</span></a>
+      <a href="resume-steve-liew.pdf" download><span>Resume</span><span>Download PDF ↓</span></a>
+    </div>
+  </section>
+
+  <footer>© 2026 Liew Hann Yuan (Steve)</footer>
+</main>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  function show(id) {
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.panel === id));
+    panels.forEach(p => p.classList.toggle('active', p.id === id));
+    if (location.hash !== '#' + id) history.replaceState(null, '', '#' + id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.panel)));
+  document.querySelectorAll('[data-jump]').forEach(b =>
+    b.addEventListener('click', e => { e.preventDefault(); show(b.dataset.jump); }));
+  const start = location.hash.replace('#','');
+  if (start && document.getElementById(start)) show(start);
+</script>
+</body>
+</html>
