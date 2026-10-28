@@ -231,7 +231,7 @@
       <path d="M3 9 C 55 3, 105 12, 158 6 S 250 2, 300 9 C 315 11, 325 8, 337 5" />
     </svg>
     <p class="hero-concrete">
-      In the past year at <strong>Shopee</strong> I shipped a <strong>production multi-agent risk assessment system</strong>, a cross-team reporting pipeline spanning five product lines, custom AI agent skills, and live frontend fixes. Real tools, in production, used by real teams.
+      At <strong>Shopee</strong> I lead delivery of a <strong>customer-facing AI chatbot</strong>, now in A/B testing, and I design and build the tools around the work: an <strong>AI request intake pipeline</strong> with 100+ requests submitted, a reporting pipeline spanning five product lines, and features shipped into a production React/TypeScript monorepo.
     </p>
     <p class="lede">
       Computer Science background, now a Senior Associate TPM. I run program delivery across APAC and LATAM, coordinating dozens of teams and senior Product, Engineering, and Business stakeholders, and I build the tooling that makes that delivery faster. I'm at my best where the problem is messy and the tools don't exist yet.
@@ -261,10 +261,14 @@
         <div class="role-date">Jan 2026 – Present</div>
       </div>
       <ul>
-        <li>Built and deployed a <b>production multi-agent system</b> that assesses project complexity across six risk dimensions, cutting manual planning overhead and improving consistency.</li>
-        <li>Architected inter-agent orchestration ("Enrich Loop") with real-time knowledge retrieval, guardrails, and adaptive mode-switching; validated through phased QA.</li>
-        <li>Eliminated fragmented reporting across <b>5 major product lines (25+ delivery teams)</b> with scalable Python pipelines integrating internal APIs into a unified reporting architecture.</li>
-        <li>Shipped frontend and backend features into a production React/TypeScript monorepo through an <b>AI Workflow pipeline (Claude Code and Codex)</b>, authoring feature briefs and specs, then reviewing AI-generated code as human-in-the-loop across deploy and QA; mentor junior PMs and engineers.</li>
+        <li>Lead and coordinate cross-team AI programs spanning the chatbot (buyer and seller bots), audio AI (ASR/TTS), and machine translation, aligning Product, Engineering, Data, QA, and DevOps outside my reporting line.</li>
+        <li>Led delivery of a <b>customer-facing AI chatbot</b> (buyer and seller bots) and built its accuracy and evaluation framework; now in A/B testing, prioritizing answer accuracy before wider rollout. Report results, risks, and trade-offs to senior leadership twice a week.</li>
+        <li>Lead project manager for the <b>chatbot knowledge base</b>, which gives the buyer bot, seller bot, and other chatbots shared knowledge, business rules, and guidance, so they give consistent answers and hand over to human support when needed.</li>
+        <li>Designed a <b>request intake pipeline</b> for the Data Mart team and coordinated its delivery, replacing ad hoc meetings and chat requests: an AI agent logs each request, assesses its impact, and drafts the data requirements document for team review. <b>15 users</b> have submitted <b>100+ requests</b> through it.</li>
+        <li>Designing <b>PJ Agent</b>, an AI-native extension of the internal project management platform that brings project plans, owners, timelines, and issues into one place, with an AI assistant that will answer project questions and prepare project, manpower, and team-priority reports.</li>
+        <li>Replaced fragmented reporting across <b>5 product lines (25+ teams)</b> with Python and SQL pipelines, cutting weekly backlog review from a full day to a 4-hour meeting.</li>
+        <li>Shipped features into a production React/TypeScript monorepo (20+ commits) through an <b>AI workflow (Claude Code and Codex)</b>, typically from PRD to tested and deployed within 1 to 2 days; mentor junior PMs and engineers.</li>
+        <li>Onboarded my new team's workstreams onto the internal project management platform, giving the team lead clearer governance over task assignment and resource management.</li>
       </ul>
     </div>
 
@@ -276,8 +280,8 @@
       <ul>
         <li>Drove <b>GMV +10%</b> with the Expat initiative, a translation feature, through model training, production deployment, UAT, and A/B experiments.</li>
         <li>Grew <b>Ads Revenue +8%</b> across APAC/LATAM via multi-iteration A/B testing and a phased Homepage rollout under aggressive timelines.</li>
-        <li>Directed end-to-end expansion into <b>2 new adjacent countries</b>, coordinating <b>15+ cross-functional teams</b> to provision containerized infrastructure, databases, middleware, monitoring, and budget guardrails, then launching a localized app across regional stores with sustained traffic uplift.</li>
-        <li>Owned full SDLC: PRD design, test strategy, release planning, milestones, rollback criteria, and defect taxonomy aligned across Product, Engineering, QA, and DevOps.</li>
+        <li>Directed end-to-end expansion into <b>2 new adjacent countries</b>, coordinating <b>15+ internal teams</b> to deliver 40+ services in 6 months (containerized infrastructure on Shopee's internal cloud, databases, middleware, API integrations, monitoring, and compute and resource sizing), then launching and operating a localized app.</li>
+        <li>Owned the full SDLC across Product, Engineering, QA, and DevOps: PRD design, test strategy, release planning, milestones, quality gates, rollback criteria, defect taxonomy, and post-production support.</li>
       </ul>
     </div>
 
@@ -287,7 +291,7 @@
         <div class="role-date">Mar 2021 – Mar 2022</div>
       </div>
       <ul>
-        <li>Led end-to-end development of responsive web apps (HTML5, CSS3, Vue.js, Laravel), gathering client requirements, managing Agile SDLC, and presenting solutions to stakeholders.</li>
+        <li>Gathered requirements and led delivery of responsive web apps (HTML5, CSS3, Vue.js, Laravel) for Singapore government agency clients through UAT and sign-off; presented solutions to technical and business stakeholders.</li>
       </ul>
     </div>
 
@@ -297,7 +301,7 @@
         <div class="role-date">2019 – 2021</div>
       </div>
       <ul>
-        <li>Scrum-based mobile development and production Vue.js / Laravel web delivery — the engineering foundation underneath the PM work.</li>
+        <li>Scrum-based mobile development and Vue.js / Laravel web delivery: the engineering foundation underneath the PM work.</li>
       </ul>
     </div>
   </section>
@@ -306,23 +310,23 @@
   <section class="panel" id="projects" role="tabpanel">
     <div class="eyebrow">Selected Builds</div>
     <h2 class="sec">A few things I've built</h2>
-    <p class="sec-sub">Real tools solving real problems — from idea to production, edge cases included.</p>
+    <p class="sec-sub">Real tools for real problems, from idea to working build, edge cases included.</p>
 
     <div class="proj">
-      <div class="proj-num">01 · Flagship</div>
-      <h3>Multi-Agent Complexity Assessment System</h3>
+      <div class="proj-num">01</div>
+      <h3>Complexity Assessment Agent Skill</h3>
       <p><span class="hook">The problem:</span> PMs assessed project complexity by gut feel, with no shared framework. Risk was handled inconsistently from one project to the next, and every plan carried hidden manual overhead.</p>
-      <p><span class="hook">My approach:</span> I designed a multi-agent system that reads the internal Knowledge Base in real time and scores a project across six risk dimensions. An orchestration layer (the "Enrich Loop") coordinates the agents, retrieves supporting context, and switches modes based on what the project needs. Guardrails constrain the agents to grounded answers to prevent hallucination, and the whole thing was validated through phased QA before rollout.</p>
-      <p><span class="hook">The result:</span> A consistent, repeatable complexity read that now feeds planning workflows across product lines, replacing ad-hoc judgement with a framework the team trusts.</p>
-      <p class="proj-note">Internal Shopee system. Architecture, agent design, and QA approach are mine and I'm glad to whiteboard the full design in an interview.</p>
-      <div class="tags"><span class="tag">Multi-Agent</span><span class="tag">RAG / KB</span><span class="tag">Guardrails</span><span class="tag">Production</span></div>
+      <p><span class="hook">My approach:</span> I built a Claude Code agent skill that reads the internal Knowledge Base in real time, checks a project across six complexity dimensions, and drafts an action plan for each risk it finds. Guardrails keep answers grounded in the knowledge base to prevent hallucination.</p>
+      <p><span class="hook">The result:</span> A consistent, repeatable complexity read to support planning review in H1 2026. It was paused when I moved to a new team in Q3, but it's where I learned agentic workflow design, which I now apply to the Data Mart intake pipeline and PJ Agent.</p>
+      <p class="proj-note">Internal Shopee system. Design, grounding approach, and evaluation are mine and I'm glad to whiteboard the full design in an interview.</p>
+      <div class="tags"><span class="tag">Agent Skill</span><span class="tag">RAG / KB</span><span class="tag">Guardrails</span><span class="tag">Agentic Design</span></div>
     </div>
 
     <div class="proj">
       <div class="proj-num">02</div>
       <h3>POP Business Review Tracker</h3>
       <p><span class="hook">The problem:</span> Five Marketplace product lines, 25+ teams in total, had zero cross-team visibility into how long business reviews were taking at each approval gate.</p>
-      <p><span class="hook">What I built:</span> A Python pipeline + Flask dashboard that pulls P0/P1 request data from the internal POP API, tracks every request from submit to live, and writes it all into a shared Google Sheet with aging alerts. Five PM teams now use it weekly. This was the first Python I ever wrote.</p>
+      <p><span class="hook">What I built:</span> A Python pipeline + Flask dashboard that pulls P0/P1 request data from the internal POP API, tracks every request from submit to live, and writes it all into a shared Google Sheet with aging alerts. This was the first Python I ever wrote.</p>
       <p class="proj-note">Internal tool on Shopee data, so no public link. Happy to walk through the pipeline design and the Sheets integration in an interview.</p>
       <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Google Sheets API</span><span class="tag">Data Pipeline</span></div>
     </div>
@@ -330,26 +334,26 @@
     <div class="proj">
       <div class="proj-num">03</div>
       <h3>Meeting Attendee Resolver</h3>
-      <p><span class="hook">The problem:</span> Scheduling cross-team meetings meant manually cross-referencing org charts, tech stacks, and availability — slow and error-prone.</p>
+      <p><span class="hook">The problem:</span> Scheduling cross-team meetings meant manually cross-referencing org charts, tech stacks, and availability: slow and error-prone.</p>
       <p><span class="hook">What I built:</span> A web portal + Python server + SeaTalk bot that resolves the right attendees by meeting purpose and team, ranks time slots by preference, and sends a draft invite via bot DM with a pre-filled Google Calendar link.</p>
       <p class="proj-note">Built on internal org and tooling data, so it stays private. The resolver logic and bot flow are mine to walk through.</p>
-      <div class="tags"><span class="tag">Web Portal</span><span class="tag">SeaTalk Bot</span><span class="tag">Google Calendar</span><span class="tag">~2,400 lines</span></div>
+      <div class="tags"><span class="tag">Web Portal</span><span class="tag">SeaTalk Bot</span><span class="tag">Google Calendar</span><span class="tag">Python</span></div>
     </div>
 
     <div class="proj">
       <div class="proj-num">04</div>
-      <h3>Custom Agent Skills</h3>
-      <p><span class="hook">The problem:</span> PMs at Shopee had no quick way to check release calendars or assess project complexity without digging through multiple systems.</p>
-      <p><span class="hook">What I built:</span> Two reusable agent skills: a Release Calendar Agent that answers natural-language scheduling questions from a live API, and a PM Complexity Bot that grounds risk assessment against the internal Knowledge Base with strict formatting discipline. Both now part of daily PM workflows.</p>
-      <p class="proj-note">Internal agent skills, not publicly shippable. I can demo the prompt design and grounding approach live.</p>
+      <h3>Release Calendar Agent Skill</h3>
+      <p><span class="hook">The problem:</span> PMs had no quick way to check release calendars without digging through multiple systems.</p>
+      <p><span class="hook">What I built:</span> A Claude Code agent skill that answers natural-language scheduling questions from the live release calendar API.</p>
+      <p class="proj-note">Internal agent skill, not publicly shippable. I can demo the prompt design and grounding approach live.</p>
       <div class="tags"><span class="tag">Agent Skills</span><span class="tag">Claude Code</span><span class="tag">Natural Language</span><span class="tag">Confluence API</span></div>
     </div>
 
     <div class="proj">
       <div class="proj-num">05</div>
-      <h3>PMP Platform Contributions</h3>
-      <p><span class="hook">The problem:</span> The internal Project Management Portal needed navigation fixes, chart tooltip bugs, and branded UI updates that were slowing down report users.</p>
-      <p><span class="hook">What I fixed:</span> Root-cause fix for stacked-chart tooltips showing cumulative values instead of per-segment values. Built an inline SVG sidebar logo with collapsed/expanded states. Converted the Reports nav item into a dropdown with module sub-items. 20+ commits to a production React / TypeScript monorepo.</p>
+      <h3>Internal Project Tracking Platform</h3>
+      <p><span class="hook">The problem:</span> The internal project tracking platform needed navigation fixes, chart tooltip bugs, and branded UI updates that were slowing down report users.</p>
+      <p><span class="hook">What I fixed:</span> Root-cause fix for stacked-chart tooltips showing cumulative values instead of per-segment values. Built an inline SVG sidebar logo with collapsed/expanded states. Converted the Reports nav item into a dropdown with module sub-items. 20+ commits to a production React / TypeScript monorepo, and onboarded my team onto the platform.</p>
       <p class="proj-note">Commits live in an internal monorepo. I can talk through the diffs and the root-cause debugging in detail.</p>
       <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Ant Design</span><span class="tag">G2 Charts</span></div>
     </div>
@@ -364,7 +368,7 @@
       <div class="skill-block">
         <h4>Systems & AI</h4>
         <ul>
-          <li>Multi-Agent Orchestration</li>
+          <li>Claude Code Agent Skills</li>
           <li>RAG / Knowledge Base Integration</li>
           <li>LLM Prompt Engineering</li>
           <li>Agentic Workflows</li>
