@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steve Liew — Technical Project & Program Manager</title>
-<meta name="description" content="Liew Hann Yuan (Steve) — Technical Project & Program Manager. I run program delivery across many teams and build the tools that make it faster.">
+<title>Steve Liew: Technical Project & Program Manager</title>
+<meta name="description" content="Steve Liew, Technical Project & Program Manager in Singapore. I run program delivery across many teams and design the tools that make it faster.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&display=swap" rel="stylesheet">
@@ -12,14 +12,32 @@
   :root {
     --ink: #16191d;
     --ink-soft: #4a4f57;
+    --ink-faint: #767b83;
     --line: #e2e0da;
     --paper: #faf9f6;
     --paper-2: #ffffff;
+    --bar-bg: rgba(250,249,246,0.92);
     --accent: #1f5c4f;
+    --accent-hover: #17463c;
     --accent-soft: #e8efe9;
+    --on-accent: #ffffff;
     --serif: "Fraunces", Georgia, "Times New Roman", serif;
     --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Helvetica, Arial, sans-serif;
-    --mono: var(--sans);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #ecebe6;
+      --ink-soft: #b4b6b9;
+      --ink-faint: #8a8d92;
+      --line: #2c3033;
+      --paper: #131617;
+      --paper-2: #1a1e1f;
+      --bar-bg: rgba(19,22,23,0.9);
+      --accent: #7cc2ad;
+      --accent-hover: #9bd3c2;
+      --accent-soft: #1d2f2a;
+      --on-accent: #0f1a17;
+    }
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -31,31 +49,28 @@
     -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
 
   /* Top bar */
   header.bar {
     position: sticky; top: 0; z-index: 50;
-    background: rgba(250,249,246,0.92);
+    background: var(--bar-bg);
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
   .bar-inner {
-    max-width: 860px; margin: 0 auto; padding: 14px 24px;
-    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    max-width: 880px; margin: 0 auto; padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px 16px;
     flex-wrap: wrap;
   }
-  .mark {
-    font-family: var(--serif); font-size: 19px; letter-spacing: -0.01em;
-    font-weight: 600; white-space: nowrap;
-  }
+  .mark { font-family: var(--serif); font-size: 19px; letter-spacing: -0.01em; font-weight: 600; white-space: nowrap; }
   .mark span { color: var(--accent); }
 
-  /* Tabs */
-  nav.tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+  nav.tabs { display: flex; gap: 2px; flex-wrap: wrap; }
   .tab {
-    font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.03em;
-    text-decoration: none; color: var(--ink-soft);
+    font-family: var(--sans); font-size: 13px; letter-spacing: 0.01em;
+    color: var(--ink-soft);
     padding: 6px 11px; border-radius: 6px; cursor: pointer;
     border: 1px solid transparent; background: none;
     transition: background .15s, color .15s;
@@ -63,95 +78,90 @@
   .tab:hover { color: var(--ink); background: var(--paper-2); }
   .tab.active { color: var(--accent); background: var(--accent-soft); }
 
-  /* Persistent resume action in the bar */
   .bar-resume {
-    font-family: var(--mono); font-size: 12px; letter-spacing: 0.03em;
-    text-decoration: none; color: #fff; background: var(--accent);
-    padding: 7px 13px; border-radius: 6px; white-space: nowrap;
-    transition: background .15s;
+    font-size: 12.5px; text-decoration: none; color: var(--on-accent); background: var(--accent);
+    padding: 7px 13px; border-radius: 6px; white-space: nowrap; transition: background .15s;
   }
-  .bar-resume:hover { background: #17463c; }
+  .bar-resume:hover { background: var(--accent-hover); }
 
   /* Panels */
   .panel { display: none; padding: 56px 0 72px; }
   .panel.active { display: block; animation: fade .25s ease; }
   @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
-  .eyebrow {
-    font-family: var(--serif); font-style: italic; font-size: 16px; letter-spacing: 0;
-    color: var(--accent); margin-bottom: 14px;
-  }
+  .eyebrow { font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--accent); margin-bottom: 14px; }
 
   /* Hero */
   h1.hero {
     font-family: var(--serif);
-    font-size: clamp(36px, 6.2vw, 58px); line-height: 1.04; letter-spacing: -0.015em;
-    font-weight: 600; margin-bottom: 14px;
+    font-size: clamp(36px, 6.4vw, 60px); line-height: 1.04; letter-spacing: -0.015em;
+    font-weight: 600; margin-bottom: 14px; text-wrap: balance;
   }
   h1.hero em { font-style: normal; color: var(--accent); }
-  .hero-concrete {
-    font-size: clamp(16px, 2.2vw, 18px); color: var(--ink-soft); margin-bottom: 20px;
-    max-width: 62ch; line-height: 1.5;
-  }
-  .hero-concrete strong { color: var(--ink); font-weight: 600; }
-  .lede { font-size: clamp(15px, 2vw, 17px); color: var(--ink-soft); max-width: 64ch; line-height: 1.65; }
-
-  /* Hand-drawn underline accent under the hero */
-  .underline-doodle { display: block; width: min(340px, 72%); height: 14px; margin: -2px 0 20px; overflow: visible; }
+  .underline-doodle { display: block; width: min(340px, 72%); height: 14px; margin: -2px 0 22px; overflow: visible; }
   .underline-doodle path { fill: none; stroke: var(--accent); stroke-width: 3.2; stroke-linecap: round; }
+  .hero-concrete { font-size: clamp(16px, 2.2vw, 18.5px); color: var(--ink); margin-bottom: 16px; max-width: 62ch; line-height: 1.55; }
+  .hero-concrete strong { font-weight: 600; }
+  .lede { font-size: clamp(15px, 2vw, 16.5px); color: var(--ink-soft); max-width: 64ch; line-height: 1.65; }
+  .lede strong { color: var(--ink); font-weight: 600; }
 
-  .meta-row {
-    margin-top: 30px; display: flex; gap: 28px; flex-wrap: wrap;
-    font-family: var(--mono); font-size: 12.5px; color: var(--ink-soft);
-  }
-  .meta-row b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 2px; font-size: 12px; }
+  .meta-row { margin-top: 30px; display: flex; gap: 14px 30px; flex-wrap: wrap; font-size: 13px; color: var(--ink-soft); }
+  .meta-row b { color: var(--ink); font-weight: 600; display: block; margin-bottom: 2px; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
 
-  .cta-row { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .cta-row { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
   .btn {
-    font-family: var(--mono); font-size: 13px; text-decoration: none;
+    font-size: 13.5px; text-decoration: none;
     padding: 10px 18px; border-radius: 7px; border: 1px solid var(--ink);
     transition: background .15s, color .15s; cursor: pointer;
   }
   .btn:hover { background: var(--ink); color: var(--paper); }
-  .btn.solid { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .btn.solid:hover { background: #17463c; }
+  .btn.solid { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+  .btn.solid:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
 
   /* Section headings */
   h2.sec { font-family: var(--serif); font-weight: 600; font-size: clamp(25px, 4vw, 34px); letter-spacing: -0.01em; margin-bottom: 10px; }
-  .sec-sub { color: var(--ink-soft); margin-bottom: 36px; max-width: 62ch; }
+  .sec-sub { color: var(--ink-soft); margin-bottom: 30px; max-width: 62ch; }
 
-  /* Experience timeline */
-  .role { padding: 24px 0; border-top: 1px solid var(--line); }
-  .role:first-of-type { border-top: none; }
-  .role-head { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline; }
+  /* Experience */
+  .role { padding: 26px 0; border-top: 1px solid var(--line); }
+  .role:first-of-type { border-top: none; padding-top: 6px; }
+  .role-head { display: flex; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; align-items: baseline; }
   .role-title { font-size: 18px; font-weight: 650; }
   .role-org { color: var(--accent); font-weight: 600; }
-  .role-date { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
-  .role ul { margin: 14px 0 0 0; padding-left: 0; list-style: none; }
+  .role-date { font-size: 12.5px; color: var(--ink-soft); white-space: nowrap; }
+  .role-note { margin-top: 6px; font-size: 13.5px; color: var(--ink-faint); font-style: italic; }
+  .group { margin-top: 18px; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-faint); font-weight: 600; }
+  .role ul { margin: 10px 0 0 0; list-style: none; }
   .role li { position: relative; padding-left: 20px; margin-bottom: 9px; color: var(--ink-soft); }
-  .role li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+  .role li::before { content: ""; position: absolute; left: 2px; top: .78em; width: 9px; height: 2px; border-radius: 2px; background: var(--accent); }
   .role li b { color: var(--ink); font-weight: 600; }
+  .when { display: inline-block; font-size: 11px; color: var(--ink-faint); border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; margin-left: 4px; vertical-align: 1px; white-space: nowrap; }
 
-  /* Project cards */
+  /* Projects */
   .proj { padding: 26px 0; border-top: 1px solid var(--line); }
-  .proj:first-of-type { border-top: none; }
+  .proj:first-of-type { border-top: none; padding-top: 6px; }
+  .proj-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   .proj-num { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--accent); }
+  .stage { font-size: 11.5px; font-weight: 600; letter-spacing: .02em; padding: 2px 8px; border-radius: 99px; background: var(--accent-soft); color: var(--accent); }
+  .stage.muted { background: transparent; border: 1px solid var(--line); color: var(--ink-faint); }
   .proj h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; margin: 6px 0 8px; letter-spacing: -0.01em; }
   .proj p { color: var(--ink-soft); max-width: 66ch; line-height: 1.6; }
   .proj p + p { margin-top: 8px; }
   .proj .hook { color: var(--ink); font-weight: 600; }
-  .proj-note {
-    margin-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
-    border-left: 2px solid var(--accent-soft); padding-left: 10px; line-height: 1.45;
-  }
+  .proj-note { margin-top: 10px; font-size: 12.5px; color: var(--ink-faint); border-left: 2px solid var(--accent-soft); padding-left: 10px; line-height: 1.45; }
   .tags { margin-top: 12px; display: flex; gap: 7px; flex-wrap: wrap; }
-  .tag {
-    font-family: var(--mono); font-size: 11px; color: var(--ink-soft);
-    border: 1px solid var(--line); border-radius: 5px; padding: 3px 8px; background: var(--paper-2);
-  }
+  .tag { font-size: 11.5px; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 5px; padding: 3px 8px; background: var(--paper-2); }
+
+  .others { margin-top: 18px; padding-top: 26px; border-top: 1px solid var(--line); }
+  .others h3 { font-family: var(--serif); font-weight: 600; font-size: 19px; margin-bottom: 12px; }
+  .others ul { list-style: none; }
+  .others li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .others li:last-child { border-bottom: none; }
+  .others li b { font-weight: 600; margin-right: 6px; }
+  .others li > span:last-child { display: block; color: var(--ink-soft); font-size: 14.5px; margin-top: 3px; }
 
   /* Skills */
-  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 26px; }
+  .skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 26px; }
   .skill-block h4 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 17px; color: var(--accent); margin-bottom: 12px; }
   .skill-block ul { list-style: none; }
   .skill-block li { color: var(--ink-soft); margin-bottom: 7px; padding-left: 16px; position: relative; }
@@ -159,48 +169,38 @@
 
   /* Contact */
   .contact-links { display: flex; flex-direction: column; gap: 4px; margin-top: 20px; }
-  .contact-links a { font-family: var(--mono); font-size: 15px; text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; transition: color .15s; }
+  .contact-links a { font-size: 15px; text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; transition: color .15s; }
   .contact-links a:hover { color: var(--accent); }
-  .contact-links a span:last-child { color: var(--ink-soft); }
+  .contact-links a span:last-child { color: var(--ink-soft); text-align: right; overflow-wrap: anywhere; }
 
-  /* Off the Clock — warmer, more personal than the work tabs */
+  /* Off the clock */
   .otc-lede { font-size: clamp(16px, 2.2vw, 19px); color: var(--ink); max-width: 60ch; line-height: 1.6; margin-bottom: 8px; }
   .otc-lede + .otc-lede { color: var(--ink-soft); font-size: clamp(15px, 2vw, 17px); margin-bottom: 40px; }
   .otc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
-  .otc-card {
-    border: 1px solid var(--line); border-radius: 12px; background: var(--paper-2);
-    padding: 24px 24px 26px;
-  }
-  .otc-card h3 {
-    font-family: var(--serif); font-weight: 600; font-size: 19px; letter-spacing: -0.01em;
-    color: var(--accent); margin-bottom: 4px;
-  }
+  .otc-card { border: 1px solid var(--line); border-radius: 12px; background: var(--paper-2); padding: 24px 24px 26px; }
+  .otc-card h3 { font-family: var(--serif); font-weight: 600; font-size: 19px; letter-spacing: -0.01em; color: var(--accent); margin-bottom: 4px; }
   .otc-card .otc-kicker { color: var(--ink-soft); font-size: 14.5px; margin-bottom: 18px; line-height: 1.5; }
-
-  /* Milestones */
   .otc-mile { list-style: none; }
   .otc-mile li { position: relative; padding-left: 26px; margin-bottom: 14px; line-height: 1.5; }
   .otc-mile li:last-child { margin-bottom: 0; }
-  .otc-mile li::before {
-    position: absolute; left: 0; top: 1px; font-family: var(--mono); font-size: 12px; font-weight: 600;
-  }
+  .otc-mile li::before { position: absolute; left: 0; top: 1px; font-size: 12px; font-weight: 600; }
   .otc-mile li.done::before { content: "✓"; color: var(--accent); }
   .otc-mile li.wip::before { content: "→"; color: var(--ink-soft); }
   .otc-mile .otc-note { display: block; color: var(--ink-soft); font-size: 13.5px; margin-top: 1px; }
-
-  /* Partner events — calendar-style rows */
   .otc-event { display: flex; gap: 16px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--line); }
   .otc-event:first-of-type { border-top: none; padding-top: 0; }
-  .otc-event .otc-when {
-    font-family: var(--mono); font-size: 12px; color: var(--accent); white-space: nowrap;
-    min-width: 74px; font-weight: 600;
-  }
+  .otc-event .otc-when { font-size: 12px; color: var(--accent); white-space: nowrap; min-width: 64px; font-weight: 600; }
   .otc-event .otc-what { line-height: 1.45; }
   .otc-event .otc-what span { display: block; color: var(--ink-soft); font-size: 13.5px; }
 
-  footer { border-top: 1px solid var(--line); padding: 26px 0; font-family: var(--mono); font-size: 11.5px; color: var(--ink-soft); }
+  footer { border-top: 1px solid var(--line); padding: 26px 0; font-size: 12px; color: var(--ink-soft); }
 
-  @media (prefers-reduced-motion: reduce) { *, html { scroll-behavior: auto; } .panel.active { animation: none; } }
+  @media (max-width: 640px) {
+    .wrap, .bar-inner { padding-left: 16px; padding-right: 16px; }
+    .panel { padding: 36px 0 56px; }
+    .tab { padding: 6px 8px; font-size: 12.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .panel.active { animation: none; } }
   .tab:focus-visible, .btn:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 </style>
 </head>
@@ -226,49 +226,58 @@
   <!-- HOME -->
   <section class="panel active" id="home" role="tabpanel">
     <div class="eyebrow">Technical Project & Program Manager · AI Delivery · Singapore</div>
-    <h1 class="hero">I build the <em>tools</em>,<br>not just coordinate them.</h1>
+    <h1 class="hero">I design the <em>tools</em>,<br>not just coordinate them.</h1>
     <svg class="underline-doodle" viewBox="0 0 340 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M3 9 C 55 3, 105 12, 158 6 S 250 2, 300 9 C 315 11, 325 8, 337 5" />
     </svg>
     <p class="hero-concrete">
-      At <strong>Shopee</strong> I lead delivery of a <strong>customer-facing AI chatbot</strong>, now in A/B testing, and I design and build the tools around the work: an <strong>AI request intake pipeline</strong> with 100+ requests submitted, a reporting pipeline spanning five product lines, and features shipped into a production React/TypeScript monorepo.
+      At <strong>Shopee</strong> I deliver cross-team AI programs: a <strong>customer-facing bot</strong>, its knowledge base, machine translation, and audio AI. I'm main project manager for the knowledge base and one of the leading members on the bot itself, now in A/B testing. I also design and build the tools around the work: an AI request intake pipeline with <strong>100+ requests</strong> submitted, and reporting pipelines across five product lines.
     </p>
     <p class="lede">
-      Computer Science background, now a Senior Associate TPM. I run program delivery across APAC and LATAM, coordinating dozens of teams and senior Product, Engineering, and Business stakeholders, and I build the tooling that makes that delivery faster. I'm at my best where the problem is messy and the tools don't exist yet.
+      Before that I took a translation model from training to production (<strong>GMV +10%</strong>) and directed a 2-country expansion with 25+ internal teams. Computer Science background; I taught myself Python on the job and ship code with Claude Code and Codex.
     </p>
     <div class="meta-row">
       <div><b>Now</b>Sr. Associate TPM, Shopee</div>
-      <div><b>Scale</b>5 product lines · 25+ teams · APAC/LATAM</div>
-      <div><b>Impact</b>GMV +10% · Ads +8%</div>
-      <div><b>Education</b>B. Comp Sci (Hons), USM</div>
+      <div><b>Experience</b>5+ yrs delivery · 4+ at Shopee</div>
+      <div><b>Impact</b>GMV +10% · Ads revenue +8%</div>
+      <div><b>Scale</b>25+ teams · 2 new markets</div>
+      <div><b>Based</b>Singapore · Singapore Citizen</div>
     </div>
     <div class="cta-row">
       <a class="btn solid" data-jump="projects" href="#projects">See what I've built</a>
       <a class="btn" href="resume-steve-liew.pdf" download>Download resume (PDF)</a>
       <a class="btn" href="mailto:steveliew9@gmail.com">Get in touch</a>
     </div>
+
   </section>
 
   <!-- EXPERIENCE -->
   <section class="panel" id="experience" role="tabpanel">
     <div class="eyebrow">Experience</div>
     <h2 class="sec">Where I've spent my time</h2>
-    <p class="sec-sub">Program execution across APAC and LATAM, plus the tools that make the work faster.</p>
+    <p class="sec-sub">5+ years in software delivery, 4+ of them at Shopee across APAC and LATAM.</p>
 
     <div class="role">
       <div class="role-head">
         <div><span class="role-title">Senior Associate, Technical Project Manager</span> · <span class="role-org">Shopee Singapore</span></div>
         <div class="role-date">Jan 2026 – Present</div>
       </div>
+      <div class="group">Current team (from Q3 2026)</div>
       <ul>
-        <li>Lead and coordinate cross-team AI programs spanning the chatbot (buyer and seller bots), audio AI (ASR/TTS), and machine translation, aligning Product, Engineering, Data, QA, and DevOps outside my reporting line.</li>
-        <li>Led delivery of a <b>customer-facing AI chatbot</b> (buyer and seller bots) and built its accuracy and evaluation framework; now in A/B testing, prioritizing answer accuracy before wider rollout. Report results, risks, and trade-offs to senior leadership twice a week.</li>
-        <li>Lead project manager for the <b>chatbot knowledge base</b>, which gives the buyer bot, seller bot, and other chatbots shared knowledge, business rules, and guidance, so they give consistent answers and hand over to human support when needed.</li>
-        <li>Designed a <b>request intake pipeline</b> for the Data Mart team and coordinated its delivery, replacing ad hoc meetings and chat requests: an AI agent logs each request, assesses its impact, and drafts the data requirements document for team review. <b>15 users</b> have submitted <b>100+ requests</b> through it.</li>
-        <li>Designing <b>PJ Agent</b>, an AI-native extension of the internal project management platform that brings project plans, owners, timelines, and issues into one place, with an AI assistant that will answer project questions and prepare project, manpower, and team-priority reports.</li>
-        <li>Replaced fragmented reporting across <b>5 product lines (25+ teams)</b> with Python and SQL pipelines, cutting weekly backlog review from a full day to a 4-hour meeting.</li>
-        <li>Shipped features into a production React/TypeScript monorepo (20+ commits) through an <b>AI workflow (Claude Code and Codex)</b>, typically from PRD to tested and deployed within 1 to 2 days; mentor junior PMs and engineers.</li>
-        <li>Onboarded my new team's workstreams onto the internal project management platform, giving the team lead clearer governance over task assignment and resource management.</li>
+        <li>Lead and coordinate cross-team AI programs in <b>machine translation</b>, <b>audio AI</b> (speech recognition and text-to-speech), and the <b>knowledge base</b> for the buyer bot and seller bot, aligning Product, Engineering, Data, QA, and DevOps teams outside my reporting line.</li>
+        <li>One of the leading members delivering the <b>customer-facing chatbot</b> (buyer bot and seller bot), now in A/B testing with answer accuracy as the gate before wider rollout. Run the daily session review: trace failing sessions to the layer that failed, route each fix to the owning team, and make sure fixes are replayed on real conversations before release. Report results, risks, and trade-offs to senior leadership twice a week.</li>
+        <li>Main project manager for the <b>chatbot knowledge base</b>, which supports both bots with shared knowledge and business rules, keeping answers consistent and handing over to human support when needed.</li>
+        <li>Designed a <b>request intake pipeline</b> for the data mart team and coordinated its delivery, replacing ad hoc meetings and chat requests: an AI agent logs each request, assesses its impact, and drafts the data requirements document for review. <b>15 users</b> have submitted <b>100+ requests</b> through it.</li>
+        <li>Shipped features into a production React/TypeScript monorepo (20+ commits) through an <b>AI workflow (Claude Code and Codex)</b>: I write the briefs and specs, then review AI-generated code through deploy and QA gates, typically from PRD to tested and deployed within 1 to 2 days.</li>
+        <li>Own my team's delivery in an object storage security migration and our dependency items in a LATAM cross-zone governance program of 21 teams, reported weekly.</li>
+        <li>Onboarded the team's workstreams onto the internal project management platform, giving the team lead clearer governance over task assignment and resource management. Now designing an AI assistant for that platform.</li>
+      </ul>
+
+      <div class="group">Earlier in 2026</div>
+      <ul>
+        <li>Replaced fragmented reporting across <b>5 product lines</b> with Python and SQL pipelines, cutting weekly backlog review from a full day to 4 hours.</li>
+        <li>Built a Claude Code agent skill that checked projects against the internal knowledge base across six complexity dimensions and drafted an action plan for each risk found.</li>
+        <li>Ran 5 AI tools sessions (5 to 10 people each), demoing that skill live, with playbooks and training.</li>
       </ul>
     </div>
 
@@ -278,10 +287,11 @@
         <div class="role-date">Apr 2022 – Dec 2025</div>
       </div>
       <ul>
-        <li>Drove <b>GMV +10%</b> with the Expat initiative, a translation feature, through model training, production deployment, UAT, and A/B experiments.</li>
-        <li>Grew <b>Ads Revenue +8%</b> across APAC/LATAM via multi-iteration A/B testing and a phased Homepage rollout under aggressive timelines.</li>
-        <li>Directed end-to-end expansion into <b>2 new adjacent countries</b>, coordinating <b>15+ internal teams</b> to deliver 40+ services in 6 months (containerized infrastructure on Shopee's internal cloud, databases, middleware, API integrations, monitoring, and compute and resource sizing), then launching and operating a localized app.</li>
-        <li>Owned the full SDLC across Product, Engineering, QA, and DevOps: PRD design, test strategy, release planning, milestones, quality gates, rollback criteria, defect taxonomy, and post-production support.</li>
+        <li>Drove <b>GMV +10%</b> on a translation feature (the Expat initiative) by leading delivery of its model from training to production deployment, UAT, and A/B experiments, coordinating 10+ cross-functional stakeholders.</li>
+        <li>Grew <b>ads revenue +8%</b> across APAC/LATAM through multi-iteration A/B testing and a phased homepage rollout under tight timelines.</li>
+        <li>Directed expansion into <b>2 adjacent countries</b>, coordinating <b>25+ internal teams</b> to deliver <b>40+ services in 6 months</b> (infrastructure on Shopee's internal cloud, databases, middleware, API integrations, and monitoring), then launched and operated a localized app.</li>
+        <li>Owned the full SDLC across Product, Engineering, QA, and DevOps, from PRD and test strategy to release planning, quality gates, rollback criteria, and post-production support.</li>
+        <li>Partnered with product designers from concept to launch on all three: design milestones in release plans, Figma sign-off before development, and design QA in UAT across devices, resulting in fewer design-related bugs.</li>
       </ul>
     </div>
 
@@ -291,7 +301,8 @@
         <div class="role-date">Mar 2021 – Mar 2022</div>
       </div>
       <ul>
-        <li>Gathered requirements and led delivery of responsive web apps (HTML5, CSS3, Vue.js, Laravel) for Singapore government agency clients through UAT and sign-off; presented solutions to technical and business stakeholders.</li>
+        <li>Gathered requirements as business analyst for Singapore government agency clients and led delivery of responsive web apps (HTML5, CSS3, Vue.js, Laravel) across the Agile SDLC through client UAT and sign-off; presented and pitched solutions to technical and business stakeholders.</li>
+        <li>Built on the Sitecore CMS behind gov.sg and REACH, the Singapore government's public-engagement sites: gathered requirements, set up the content models and templates, and built the API integration and the front-end pages that render the content. Helped run testing, kept delivery on schedule, and monitored the live release.</li>
       </ul>
     </div>
 
@@ -301,61 +312,51 @@
         <div class="role-date">2019 – 2021</div>
       </div>
       <ul>
-        <li>Scrum-based mobile development and Vue.js / Laravel web delivery: the engineering foundation underneath the PM work.</li>
+        <li>Improved sprint predictability with Scrum on mobile development, and built Vue.js and Laravel web apps for a client: the engineering foundation under the PM work.</li>
       </ul>
     </div>
   </section>
 
   <!-- PROJECTS -->
   <section class="panel" id="projects" role="tabpanel">
-    <div class="eyebrow">Selected Builds</div>
-    <h2 class="sec">A few things I've built</h2>
-    <p class="sec-sub">Real tools for real problems, from idea to working build, edge cases included.</p>
+    <div class="eyebrow">Selected work</div>
+    <h2 class="sec">Things I've designed and built</h2>
+    <p class="sec-sub">Each one started as a gap in how work got done. Every card says its stage and whether I designed it or built it.</p>
 
     <div class="proj">
-      <div class="proj-num">01</div>
-      <h3>Complexity Assessment Agent Skill</h3>
-      <p><span class="hook">The problem:</span> PMs assessed project complexity by gut feel, with no shared framework. Risk was handled inconsistently from one project to the next, and every plan carried hidden manual overhead.</p>
-      <p><span class="hook">My approach:</span> I built a Claude Code agent skill that reads the internal Knowledge Base in real time, checks a project across six complexity dimensions, and drafts an action plan for each risk it finds. Guardrails keep answers grounded in the knowledge base to prevent hallucination.</p>
-      <p><span class="hook">The result:</span> A consistent, repeatable complexity read to support planning review in H1 2026. It was paused when I moved to a new team in Q3, but it's where I learned agentic workflow design, which I now apply to the Data Mart intake pipeline and PJ Agent.</p>
-      <p class="proj-note">Internal Shopee system. Design, grounding approach, and evaluation are mine and I'm glad to whiteboard the full design in an interview.</p>
-      <div class="tags"><span class="tag">Agent Skill</span><span class="tag">RAG / KB</span><span class="tag">Guardrails</span><span class="tag">Agentic Design</span></div>
+      <div class="proj-top"><span class="proj-num">01</span><span class="stage">In use · 100+ requests</span></div>
+      <h3>AI Request Intake Pipeline</h3>
+      <p><span class="hook">The gap:</span> Data requests to the data mart team arrived through ad hoc meetings and chat messages.</p>
+      <p><span class="hook">What I did:</span> Designed the pipeline and coordinated its delivery. An AI agent logs each request, assesses its impact, and drafts the data requirements document for the team to review. 15 users have submitted 100+ requests through it (as of Oct 2026).</p>
+      <p class="proj-note">Internal Shopee system. Happy to walk through the flow and the review step in an interview.</p>
+      <div class="tags"><span class="tag">AI Agent</span><span class="tag">Process Design</span><span class="tag">Request Intake</span></div>
     </div>
 
     <div class="proj">
-      <div class="proj-num">02</div>
-      <h3>POP Business Review Tracker</h3>
-      <p><span class="hook">The problem:</span> Five Marketplace product lines, 25+ teams in total, had zero cross-team visibility into how long business reviews were taking at each approval gate.</p>
-      <p><span class="hook">What I built:</span> A Python pipeline + Flask dashboard that pulls P0/P1 request data from the internal POP API, tracks every request from submit to live, and writes it all into a shared Google Sheet with aging alerts. This was the first Python I ever wrote.</p>
-      <p class="proj-note">Internal tool on Shopee data, so no public link. Happy to walk through the pipeline design and the Sheets integration in an interview.</p>
-      <div class="tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">Google Sheets API</span><span class="tag">Data Pipeline</span></div>
+      <div class="proj-top"><span class="proj-num">02</span><span class="stage">Ongoing · PRD to deployed in 1–2 days</span></div>
+      <h3>AI-assisted delivery into a production monorepo</h3>
+      <p><span class="hook">What I do:</span> Ship features into a production React/TypeScript monorepo (20+ commits) through an AI workflow with Claude Code and Codex. I write the briefs and specs, then review the AI-generated code through deploy and QA gates. Most features go from PRD to tested and deployed within 1 to 2 days.</p>
+      <p class="proj-note">Commits live in an internal monorepo. I can talk through the workflow and the review gates in detail.</p>
+      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Claude Code</span><span class="tag">Codex</span></div>
     </div>
 
     <div class="proj">
-      <div class="proj-num">03</div>
-      <h3>Meeting Attendee Resolver</h3>
-      <p><span class="hook">The problem:</span> Scheduling cross-team meetings meant manually cross-referencing org charts, tech stacks, and availability: slow and error-prone.</p>
-      <p><span class="hook">What I built:</span> A web portal + Python server + SeaTalk bot that resolves the right attendees by meeting purpose and team, ranks time slots by preference, and sends a draft invite via bot DM with a pre-filled Google Calendar link.</p>
-      <p class="proj-note">Built on internal org and tooling data, so it stays private. The resolver logic and bot flow are mine to walk through.</p>
-      <div class="tags"><span class="tag">Web Portal</span><span class="tag">SeaTalk Bot</span><span class="tag">Google Calendar</span><span class="tag">Python</span></div>
+      <div class="proj-top"><span class="proj-num">03</span><span class="stage">Delivered · full day to 4 hours</span></div>
+      <h3>Cross-product reporting pipelines</h3>
+      <p><span class="hook">The gap:</span> Reporting across five product lines was fragmented, and the weekly backlog review took a full day.</p>
+      <p><span class="hook">What I built:</span> Python and SQL pipelines that unify internal APIs and Google Sheets into one automated view. Weekly backlog review went from a full day to 4 hours.</p>
+      <p class="proj-note">Internal tool on Shopee data, so no public link. Happy to walk through the pipeline design.</p>
+      <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Google Sheets</span><span class="tag">Data Pipeline</span></div>
     </div>
 
-    <div class="proj">
-      <div class="proj-num">04</div>
-      <h3>Release Calendar Agent Skill</h3>
-      <p><span class="hook">The problem:</span> PMs had no quick way to check release calendars without digging through multiple systems.</p>
-      <p><span class="hook">What I built:</span> A Claude Code agent skill that answers natural-language scheduling questions from the live release calendar API.</p>
-      <p class="proj-note">Internal agent skill, not publicly shippable. I can demo the prompt design and grounding approach live.</p>
-      <div class="tags"><span class="tag">Agent Skills</span><span class="tag">Claude Code</span><span class="tag">Natural Language</span><span class="tag">Confluence API</span></div>
-    </div>
-
-    <div class="proj">
-      <div class="proj-num">05</div>
-      <h3>Internal Project Tracking Platform</h3>
-      <p><span class="hook">The problem:</span> The internal project tracking platform needed navigation fixes, chart tooltip bugs, and branded UI updates that were slowing down report users.</p>
-      <p><span class="hook">What I fixed:</span> Root-cause fix for stacked-chart tooltips showing cumulative values instead of per-segment values. Built an inline SVG sidebar logo with collapsed/expanded states. Converted the Reports nav item into a dropdown with module sub-items. 20+ commits to a production React / TypeScript monorepo, and onboarded my team onto the platform.</p>
-      <p class="proj-note">Commits live in an internal monorepo. I can talk through the diffs and the root-cause debugging in detail.</p>
-      <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Ant Design</span><span class="tag">G2 Charts</span></div>
+    <div class="others">
+      <h3>Other builds and experiments</h3>
+      <ul>
+        <li><b>Complexity review agent skill</b> <span class="stage muted">Stopped · H1 2026</span><span>A Claude Code skill that checked projects against the internal knowledge base across six complexity dimensions and drafted an action plan per risk. It's where I learned agentic workflow design.</span></li>
+        <li><b>AI project assistant</b> <span class="stage muted">Design phase</span><span>An AI-native extension of the internal project management platform that will answer project questions and prepare project, manpower, and team-priority reports.</span></li>
+        <li><b>Meeting attendee resolver</b> <span class="stage muted">Built · internal</span><span>A web portal, Python server, and chat bot that picks attendees by meeting purpose and team, ranks time slots, and sends a draft invite.</span></li>
+        <li><b>Release calendar agent skill</b> <span class="stage muted">Built · H1 2026</span><span>A Claude Code skill that answers live scheduling questions about the release calendar in natural language.</span></li>
+      </ul>
     </div>
   </section>
 
@@ -366,43 +367,46 @@
     <p class="sec-sub">Built on a Computer Science (Software Engineering, Honours) foundation.</p>
     <div class="skill-grid">
       <div class="skill-block">
-        <h4>Systems & AI</h4>
+        <h4>AI & agents</h4>
         <ul>
-          <li>Claude Code Agent Skills</li>
-          <li>RAG / Knowledge Base Integration</li>
-          <li>LLM Prompt Engineering</li>
-          <li>Agentic Workflows</li>
-          <li>Evaluation & QA</li>
+          <li>Claude Code · Codex</li>
+          <li>Agent Skills</li>
+          <li>RAG / Knowledge Bases</li>
+          <li>Prompt Engineering</li>
+          <li>AI Evaluation</li>
         </ul>
       </div>
       <div class="skill-block">
         <h4>Build</h4>
         <ul>
-          <li>Python</li>
+          <li>Python · Flask</li>
+          <li>SQL</li>
           <li>React · TypeScript</li>
           <li>Vue.js · Laravel</li>
-          <li>SQL</li>
-          <li>Internal API Integration</li>
+          <li>REST APIs</li>
+          <li>Sitecore (CMS)</li>
         </ul>
       </div>
       <div class="skill-block">
-        <h4>Program Management</h4>
+        <h4>Delivery</h4>
         <ul>
           <li>Full SDLC Ownership</li>
-          <li>Release Planning & Quality Gates</li>
+          <li>Agile / Scrum</li>
           <li>A/B Testing & Phased Rollout</li>
-          <li>Cross-functional Coordination</li>
-          <li>Risk & Rollback Planning</li>
+          <li>Risk & Issue Management</li>
+          <li>Scope & Change Management</li>
+          <li>Request Intake</li>
         </ul>
       </div>
       <div class="skill-block">
-        <h4>Ways of Working</h4>
+        <h4>Tools & languages</h4>
         <ul>
           <li>Jira · Confluence</li>
+          <li>Figma · Miro</li>
           <li>Google Workspace</li>
-          <li>Multi-market (APAC / LATAM)</li>
-          <li>Mandarin (Native) · English (Pro)</li>
-          <li>Mentoring junior PMs & engineers</li>
+          <li>Mandarin (Native)</li>
+          <li>English (Professional)</li>
+          <li>Malay (Conversational)</li>
         </ul>
       </div>
     </div>
@@ -416,8 +420,6 @@
     <p class="otc-lede">It's how I stay current and keep my hands in the actual craft, not just the roadmap.</p>
 
     <div class="otc-grid">
-
-      <!-- Exploration -->
       <div class="otc-card">
         <h3>What I'm exploring</h3>
         <p class="otc-kicker">Curiosity-driven, no deadline. Whatever's new and worth understanding properly.</p>
@@ -429,28 +431,14 @@
         </ul>
       </div>
 
-      <!-- Personal app example -->
       <div class="otc-card">
         <h3>A build that's just ours</h3>
         <p class="otc-kicker">One example: a small private web app I designed and built for me and my partner. Described at the feature level, the contents stay private.</p>
-        <div class="otc-event">
-          <div class="otc-when">Plan</div>
-          <div class="otc-what">A planner module<span>Options, budgeting, and decisions in one place.</span></div>
-        </div>
-        <div class="otc-event">
-          <div class="otc-when">Track</div>
-          <div class="otc-what">Important dates and reminders<span>Milestones, recurring events, and goals.</span></div>
-        </div>
-        <div class="otc-event">
-          <div class="otc-when">Collect</div>
-          <div class="otc-what">An idea dock and a timeline<span>Things to try, and moments worth keeping.</span></div>
-        </div>
-        <div class="otc-event">
-          <div class="otc-when">Profile</div>
-          <div class="otc-what">A page for each of us<span>The personal layer that makes it ours.</span></div>
-        </div>
+        <div class="otc-event"><div class="otc-when">Plan</div><div class="otc-what">A planner module<span>Options, budgeting, and decisions in one place.</span></div></div>
+        <div class="otc-event"><div class="otc-when">Track</div><div class="otc-what">Important dates and reminders<span>Milestones, recurring events, and goals.</span></div></div>
+        <div class="otc-event"><div class="otc-when">Collect</div><div class="otc-what">An idea dock and a timeline<span>Things to try, and moments worth keeping.</span></div></div>
+        <div class="otc-event"><div class="otc-when">Profile</div><div class="otc-what">A page for each of us<span>The personal layer that makes it ours.</span></div></div>
       </div>
-
     </div>
   </section>
 
@@ -458,7 +446,7 @@
   <section class="panel" id="contact" role="tabpanel">
     <div class="eyebrow">Contact</div>
     <h2 class="sec">Let's talk</h2>
-    <p class="sec-sub">Open to technical project &amp; program management roles, including AI delivery, in Singapore. I'm at my best when the problem is messy and the tools don't exist yet.</p>
+    <p class="sec-sub">Open to technical project &amp; program management roles, including AI delivery, in Singapore. Singapore Citizen, so no visa sponsorship needed.</p>
     <div class="contact-links">
       <a href="mailto:steveliew9@gmail.com"><span>Email</span><span>steveliew9@gmail.com</span></a>
       <a href="https://linkedin.com/in/steve-liew8" target="_blank" rel="noopener"><span>LinkedIn</span><span>/in/steve-liew8</span></a>
@@ -467,7 +455,7 @@
     </div>
   </section>
 
-  <footer>© 2026 Liew Hann Yuan (Steve)</footer>
+  <footer>© 2026 Steve Liew</footer>
 </main>
 
 <script>
